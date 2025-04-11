@@ -127,7 +127,6 @@ const App = () => {
         setOutput("An error occurred during conversion. Please try again.");
       }
     }
-    setInput("");
   };
 
   return (
