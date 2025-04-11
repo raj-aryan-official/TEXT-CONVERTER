@@ -1,0 +1,202 @@
+:root {
+  /* Updated Color Variables */
+  --primary-color: #547f5b;
+  --secondary-color: #203d45;
+  --background-color: #203a20;
+  --text-color: #000000;
+  --error-color: #ef4444;
+  --success-color: #22c55e;
+
+  /* Spacing Variables */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Effects */
+  --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  --border-radius: 16px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-sm);
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  transition: var(--transition);
+}
+
+.container:hover {
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-4px);
+}
+
+/* Typography */
+h1, h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: black;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Input Section */
+.input-group {
+  margin-bottom: var(--spacing-md);
+}
+
+input, textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid #7f7f7f;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: rgb(0, 0, 0);
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(36, 46, 232, 0.2);
+}
+
+/* Controls */
+.controls, .select-and-convert {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-md);
+}
+
+.select-type, .operation-select {
+  flex: 1;
+  padding: var(--spacing-sm);
+  border: 2px solid #7f7f7f;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: white;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.select-type:hover,
+.select-type:focus,
+.operation-select:hover,
+.operation-select:focus {
+  border-color: var(--primary-color);
+}
+
+.convert-btn, .convert-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: 2px solid #b4f1fd;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  min-width: 130px;
+}
+
+.convert-btn:hover:not(:disabled),
+.convert-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(63, 230, 63, 0);
+}
+
+.convert-btn:disabled,
+.convert-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #f80000, #000000);
+}
+
+/* Output Section */
+.result, .output-content {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+.output-section {
+  margin-top: var(--spacing-lg);
+  background: #ffffff;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  box-shadow: inset 4px 4px 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer */
+.footer {
+  margin-top: var(--spacing-lg);
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 0 0 16px 16px;
+  box-shadow: var(--box-shadow);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .controls, .select-and-convert {
+    flex-direction: column;
+  }
+
+  .convert-btn,
+  .convert-button,
+  .select-type,
+  .operation-select {
+    width: 100%;
+  }
+}
+
