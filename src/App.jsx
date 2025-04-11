@@ -16,7 +16,7 @@ const App = () => {
     },
     copy: (text) => {
       navigator.clipboard.writeText(text);
-      return "Text copied to clipboard!";
+      alert("Text copied to clipboard!");
     },
     removeSpaces: (text) => text.replace(/\s+/g, ""),
     removeNumbers: (text) => text.replace(/[0-9]/g, ""),
